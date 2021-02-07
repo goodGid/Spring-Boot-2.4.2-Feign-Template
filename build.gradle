@@ -20,7 +20,7 @@ repositories {
 
 ext {
     /**
-     * Spring Boot와 springCloudVersion이 호환되어야한다.
+     * Spring Boot and springCloudVersion must be compatible.
      * 2.4.x == 2020.0.x
      * ref : https://spring.io/projects/spring-cloud
      */
