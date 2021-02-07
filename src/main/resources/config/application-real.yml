@@ -1,0 +1,17 @@
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 1000
+        readTimeout: 5000
+        loggerLevel: NONE
+      demo-name:
+        connectTimeout: 1000
+        readTimeout: 4000
+        loggerLevel: BASIC
+  demo:
+    host: http://localhost-real:8080
+
+aaa:
+  bbb:
+    ccc: real

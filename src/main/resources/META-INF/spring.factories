@@ -1,0 +1,2 @@
+org.springframework.boot.env.EnvironmentPostProcessor=\
+  dev.be.goodgid.common.property.YamlEnvironmentPostProcessor

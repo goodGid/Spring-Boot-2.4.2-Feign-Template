@@ -1,0 +1,4 @@
+feign:
+  api:
+    demo:
+      url: ${feign.demo.host}/test
