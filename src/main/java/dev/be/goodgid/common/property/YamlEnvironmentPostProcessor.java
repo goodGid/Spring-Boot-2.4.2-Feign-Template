@@ -30,33 +30,34 @@ public class YamlEnvironmentPostProcessor implements EnvironmentPostProcessor {
 
     @Override
     public void postProcessEnvironment(ConfigurableEnvironment environment, SpringApplication application) {
-        try {
-            // Set Default Profile
-            boolean isSomeProfileActive = environment.acceptsProfiles(Profiles.of(acceptsProfiles));
 
-            if (!isSomeProfileActive) {
-                environment.setActiveProfiles("local");
-                Resource path = new ClassPathResource("config/application.yml");
-                if (path.exists()) {
-                    try {
-                        environment.getPropertySources().addLast(
-                                new PropertiesPropertySourceLoader().load("application", path).get(0));
-                    } catch (IOException e) {
-                        throw new IllegalStateException(e);
-                    }
+        // Set Default Profile
+        boolean isSomeProfileActive = environment.acceptsProfiles(Profiles.of(acceptsProfiles));
+
+        if (!isSomeProfileActive) {
+            environment.setActiveProfiles("local");
+            Resource path = new ClassPathResource("config/application.yml");
+            if (path.exists()) {
+                try {
+                    environment.getPropertySources().addLast(
+                            new PropertiesPropertySourceLoader().load("application", path).get(0));
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
             } else {
                 log.info("{} profile is active: " + environment.getActiveProfiles());
             }
+        }
 
-            // Add Custom *.yml
+        // Load Custom *.yml
+        try {
             List<Resource> resourceList = new ArrayList<>();
             for (String propertyUri : propertyUris) {
                 resourceList.addAll(List.of(resourcePatternResolver.getResources(propertyUri)));
             }
 
             resourceList.stream().map(this::loadYaml).forEach(them -> {
-                if (them != null && them.size() > 0) {
+                if (them != null) {
                     for (PropertySource<?> it : them) {
                         environment.getPropertySources().addLast(it);
                     }
@@ -74,8 +75,7 @@ public class YamlEnvironmentPostProcessor implements EnvironmentPostProcessor {
         try {
             return loader.load(resource.getURL().toString(), resource);
         } catch (IOException ex) {
-            throw new IllegalStateException(
-                    "Failed to load yaml configuration from " + resource, ex);
+            throw new IllegalStateException("Failed to load yaml configuration from " + resource, ex);
         }
     }
 }
