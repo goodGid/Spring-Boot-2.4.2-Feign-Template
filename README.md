@@ -6,7 +6,9 @@
 
 * And you can easily use this project
 
-  because this is the basic structure is all in place.
+  because basic things in the structure of the project are already prepared.
+
+
 
 ## Feature
 
@@ -26,6 +28,7 @@
 
   * ref : *application-{profile}.yml*, *DemoFeignClient.class*
 
+
 ## Version
 
 * Java : 11
@@ -35,6 +38,8 @@
 * Feign : 2020.0.1
 
 * Build Tool : Gradle
+
+
 
 ## Dependency
 
@@ -64,6 +69,8 @@ dependencies {
 }
 ```
 
+
+
 ## Comment
 
 * If you want to test profile environment
@@ -73,6 +80,8 @@ dependencies {
 ```
 -Dspring.profiles.active={profile}
 ```
+
+
 
 * I recommend you. 
 
