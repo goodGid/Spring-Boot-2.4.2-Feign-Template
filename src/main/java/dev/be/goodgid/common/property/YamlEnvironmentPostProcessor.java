@@ -32,20 +32,16 @@ public class YamlEnvironmentPostProcessor implements EnvironmentPostProcessor {
     public void postProcessEnvironment(ConfigurableEnvironment environment, SpringApplication application) {
 
         // Set Default Profile
-        boolean isSomeProfileActive = environment.acceptsProfiles(Profiles.of(acceptsProfiles));
+        boolean isValidProfileActive = environment.acceptsProfiles(Profiles.of(acceptsProfiles));
 
-        if (!isSomeProfileActive) {
+        if (!isValidProfileActive) {
             environment.setActiveProfiles("local");
             Resource path = new ClassPathResource("config/application.yml");
-            if (path.exists()) {
-                try {
-                    environment.getPropertySources().addLast(
-                            new PropertiesPropertySourceLoader().load("application", path).get(0));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            } else {
-                log.info("{} profile is active: " + environment.getActiveProfiles());
+            try {
+                environment.getPropertySources().addLast(
+                        new PropertiesPropertySourceLoader().load("application", path).get(0));
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
 
