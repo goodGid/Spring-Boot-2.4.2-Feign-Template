@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
 public class DemoFeignConfig {
 
     @Bean
-    public DemoFeignErrorDecoder PaypayGateWayErrorDecoder() {
+    public DemoFeignErrorDecoder DemoErrorDecoder() {
         return new DemoFeignErrorDecoder();
     }
 
