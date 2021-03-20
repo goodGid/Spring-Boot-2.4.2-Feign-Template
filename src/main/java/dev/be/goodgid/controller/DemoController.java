@@ -16,12 +16,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import dev.be.goodgid.common.dto.BaseRequestInfo;
 import dev.be.goodgid.common.dto.BaseResponseInfo;
 import dev.be.goodgid.feign.client.DemoFeignClient;
 import dev.be.goodgid.service.DemoService;
+import feign.Param;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -39,7 +41,7 @@ public class DemoController {
     private String aaaBbbCcc;
 
     @GetMapping("/test/feign")
-    public ResponseEntity<BaseResponseInfo> testFeign() {
+    public ResponseEntity<BaseResponseInfo> testFeign(@RequestParam int testNumber) {
         ResponseEntity<BaseResponseInfo> response = null;
 
         BaseRequestInfo body = BaseRequestInfo.builder()
@@ -48,9 +50,13 @@ public class DemoController {
                                               .requestDate(LocalDateTime.now())
                                               .build();
 
-        response = client.testGetMethod(CUSTOM_HEADER_VALUE);
-//        response = client.testPostMethod(CUSTOM_HEADER_VALUE, body);
-//        response = client.testErrorDecoder(CUSTOM_HEADER_VALUE);
+        if (testNumber == 1) {
+            response = client.testGetMethod(CUSTOM_HEADER_VALUE);
+        } else if (testNumber == 2) {
+            response = client.testPostMethod(CUSTOM_HEADER_VALUE, body);
+        } else if (testNumber == 3) {
+            response = client.testErrorDecoder(CUSTOM_HEADER_VALUE);
+        }
 
         return response;
     }
