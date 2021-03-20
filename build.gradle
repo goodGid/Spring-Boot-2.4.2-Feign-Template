@@ -26,6 +26,8 @@ ext {
      */
     // Feign
     set('springCloudVersion', '2020.0.1')
+
+    set('commonsLangVersion', '3.11');
 }
 
 dependencyManagement {
@@ -43,6 +45,9 @@ dependencies {
 
     // Feign
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+
+    // for `StringUtils`
+    implementation "org.apache.commons:commons-lang3:${commonsLangVersion}"
 
 }
 

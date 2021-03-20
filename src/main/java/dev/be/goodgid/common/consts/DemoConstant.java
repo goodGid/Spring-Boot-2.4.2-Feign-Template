@@ -8,4 +8,5 @@ public class DemoConstant {
     public static String DEFAULT_NAME = "goodGid";
     public static Long DEFAULT_AGE = 1L;
 
+    public static final String PATTERN = "yyyy-MM-dd'T'HH:mm:ss";
 }
