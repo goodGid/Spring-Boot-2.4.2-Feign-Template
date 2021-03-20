@@ -33,6 +33,10 @@
 
   * ref : *application-{profile}.yml*, *DemoFeignClient.class*
 
+* We can use Feign **Interceptor**
+
+  * ref : *DemoFeignInterceptor.class*
+
 
 ## Version
 
