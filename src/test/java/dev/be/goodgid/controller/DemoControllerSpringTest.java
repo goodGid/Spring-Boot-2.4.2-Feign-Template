@@ -20,6 +20,7 @@ class DemoControllerSpringTest {
     @Autowired
     MockMvc mockMvc;
 
+    // GoodgidApplication를 실행시킨 후 테스트를 시켜야하다.
     @Test
     public void test() throws Exception {
 
