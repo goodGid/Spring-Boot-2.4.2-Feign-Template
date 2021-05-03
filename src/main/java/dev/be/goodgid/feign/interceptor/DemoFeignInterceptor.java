@@ -40,8 +40,7 @@ public final class DemoFeignInterceptor implements RequestInterceptor {
             log.warn("Error occurred while parsing objectMapper. ", e);
             newMessage = oldMessage;
         }
-        System.out.println(oldMessage);
-        System.out.println(newMessage);
+        log.info("[DemoFeignInterceptor] New Message. {}", newMessage);
         template.body(newMessage); // Change :: Old Body -> New Body
     }
 }
