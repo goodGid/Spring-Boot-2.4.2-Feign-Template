@@ -30,8 +30,8 @@ public class FeignCustomLogger extends Logger {
             "[FEIGN CLIENT] [REQUEST] (Method : %s) (Header : %s) (URI : %s) (Body : %s) [RESPONSE : \"OK\"] (Body : %s) [Elapsed : %dms%s]";
     private static final String ERROR_LOG_MSG =
             "[FEIGN CLIENT] [REQUEST] (Method : %s) (Header : %s) (URI : %s) (Body : %s) [RESPONSE : \"FAIL\"] (Body : %s) [Elapsed : %dms%s]";
-    private static final int DEFAULT_SLOW_API_TIME = 5_000;
-    private static final String SLOW_API_NOTICE = ", Slow Api";
+    private static final int DEFAULT_SLOW_API_TIME = 3_000;
+    private static final String SLOW_API_NOTICE = ", Slow API";
     private static final String DASH = "-";
     private static final Map<String, Integer> slowApiThresholdMap = new ConcurrentHashMap<>();
 
