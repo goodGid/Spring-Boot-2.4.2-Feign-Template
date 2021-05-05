@@ -17,25 +17,18 @@
 
 ## Feature
 
-* Set **Default Profile** when an inappropriate profile value is entered
-
-  * ref : *YamlEnvironmentPostProcessor.class*
+* [Set **Default Profile** when an inappropriate profile value is entered](https://goodgid.github.io/Analyzing-the-Feign-Client-and-Use/#profile-%EC%84%A4%EC%A0%95)
   
-* We can use *custom* *.*yml property*
-
-  * ref : *YamlEnvironmentPostProcessor.class*
+* [*custom* *.*yml property*](https://goodgid.github.io/Analyzing-the-Feign-Client-and-Use/#custom-yml-%EC%82%AC%EC%9A%A9)
     
-* We can use **ErrorDecoder** for Feign
-
-  * ref : *DemoFeignErrorDecoder.class*, *DemoFeignClient.class*
+* [**ErrorDecoder** for Feign](https://goodgid.github.io/Analyzing-the-Feign-Client-and-Use/#errordecoder-%EC%82%AC%EC%9A%A9)
   
-* We can use **Custom TimeOut** Property while using feign client
+* [**Custom TimeOut** Property while using feign client](https://goodgid.github.io/Analyzing-the-Feign-Client-and-Use/#connectionread-timeout-%EC%84%A4%EC%A0%95)
 
-  * ref : *application-{profile}.yml*, *DemoFeignClient.class*
+* [Feign **Interceptor**](https://goodgid.github.io/Analyzing-the-Feign-Client-and-Use/#feign-interceptor)
 
-* We can use Feign **Interceptor**
+* [Feign **CustomLogger**](https://goodgid.github.io/Analyzing-the-Feign-Client-and-Use/#feign-customlogger)
 
-  * ref : *DemoFeignInterceptor.class*
 
 
 ## Version
