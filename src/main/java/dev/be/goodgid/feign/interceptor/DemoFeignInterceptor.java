@@ -20,6 +20,10 @@ public final class DemoFeignInterceptor implements RequestInterceptor {
     @Override
     public void apply(RequestTemplate template) {
 
+        if (template.body() == null) {
+            return;
+        }
+
         String oldMessage = StringUtils.toEncodedString(template.body(), UTF_8);
         log.info("[DemoFeignInterceptor] Old Message. {}", oldMessage);
 
