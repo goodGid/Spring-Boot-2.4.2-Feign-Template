@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestHeader;
 
 import dev.be.goodgid.common.dto.BaseRequestInfo;
 import dev.be.goodgid.common.dto.BaseResponseInfo;
+import dev.be.goodgid.feign.annotation.FeignSlowApiThreshold;
 import dev.be.goodgid.feign.config.DemoFeignConfig;
 
+@FeignSlowApiThreshold
 @FeignClient(
         name = "demo-name",
         url = "${feign.api.demo.url}",
