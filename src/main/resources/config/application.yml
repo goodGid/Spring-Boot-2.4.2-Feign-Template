@@ -3,11 +3,11 @@ feign:
     config:
       default:
         connectTimeout: 1000
-        readTimeout: 5000
+        readTimeout: 3000
         loggerLevel: NONE # FeignCustomLogger에서 loggerLevel = NONE일 경우 log를 남기지 않는다.
       demo-name:
         connectTimeout: 1000
-        readTimeout: 5000
+        readTimeout: 10000
         loggerLevel: BASIC
   demo:
     host: http://localhost:8080
