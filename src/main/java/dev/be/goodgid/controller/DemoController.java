@@ -98,8 +98,8 @@ public class DemoController {
     }
 
     private void printBody(BaseRequestInfo body) {
-        log.info(body.getName());
-        log.info(String.valueOf(body.getAge()));
-        log.info(body.getRequestDate().toString());
+        log.info("body.getName() : {}", body.getName());
+        log.info("body.getAge() : {}", body.getAge());
+        log.info("body.getRequestDate() : {} ", body.getRequestDate().toString());
     }
 }
