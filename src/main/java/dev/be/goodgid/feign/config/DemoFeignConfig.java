@@ -6,7 +6,7 @@ import dev.be.goodgid.feign.decoder.DemoFeignErrorDecoder;
 import dev.be.goodgid.feign.interceptor.DemoFeignInterceptor;
 import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
+@Configuration
 public class DemoFeignConfig {
 
     @Bean
